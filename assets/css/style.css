@@ -15,3 +15,9 @@ header {
     left: 40px;
     z-index: 1;
 }
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
