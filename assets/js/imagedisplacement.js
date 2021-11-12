@@ -22,15 +22,18 @@ sections.forEach(section => {
 
     // make a new image
     let image = null
+    let displacementImage = null
 
     // make a new loader
     const loader = new PIXI.loaders.Loader()
 
     // load in our image 
     loader.add("image", originalImageSource)
+    loader.add("displacement", "assets/images/displacement1.jpg")
     loader.load((loader, resources) => {
         // once the image had loaded now do things
         image = new PIXI.Sprite(resources.image.texture)
+        displacementImage = new PIXI.Sprite(resources.displacement.texture)
 
         image.x = 100
         image.y = 100
@@ -40,10 +43,9 @@ sections.forEach(section => {
         image.interactive = true
 
         image.filters = [
-            // Blur filter
-            new PIXI.filters.BlurFilter(3,5),
-            // Noise filter
-            new PIXI.filters.NoiseFilter(0.1)
+            // new PIXI.filters.BlurFilter(3,5),
+            // new PIXI.filters.NoiseFilter(0.1)
+            new PIXI.filters.DisplacementFilter(displacementImage, 100)
         ]
 
         // add the image to the app
