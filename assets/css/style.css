@@ -8,3 +8,10 @@ body {
     background-color: #fff;
     color: #000;
 }
+
+header {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    z-index: 1;
+}
