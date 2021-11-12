@@ -39,6 +39,13 @@ sections.forEach(section => {
         // this makes the image interactive
         image.interactive = true
 
+        image.filters = [
+            // Blur filter
+            new PIXI.filters.BlurFilter(3,5),
+            // Noise filter
+            new PIXI.filters.NoiseFilter(0.1)
+        ]
+
         // add the image to the app
         app.stage.addChild(image)
     })
