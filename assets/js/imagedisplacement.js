@@ -42,6 +42,12 @@ sections.forEach(section => {
         // this makes the image interactive
         image.interactive = true
 
+        displacementImage.width = 300
+        displacementImage.height = 300
+        // Found in PIXI Documentation
+        displacementImage.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT
+
+
         image.filters = [
             // new PIXI.filters.BlurFilter(3,5),
             // new PIXI.filters.NoiseFilter(0.1)
@@ -50,6 +56,13 @@ sections.forEach(section => {
 
         // add the image to the app
         app.stage.addChild(image)
+        app.stage.addChild(displacementImage)
+    
+
+        // add rotation to each frame
+        app.ticker.add(() => {
+            displacementImage.x = displacementImage.x + 1
+        })
     })
 
 })
