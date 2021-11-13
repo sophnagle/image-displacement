@@ -63,10 +63,16 @@ sections.forEach(section => {
     
 
         // add rotation to each frame
-        app.ticker.add(() => {
+        /* app.ticker.add(() => {
             displacementImage.x = displacementImage.x + 1,
             displacementImage.y = displacementImage.y + 1
-        })
+        })*/
+    })
+
+    // now i want to listen to mousemove
+    section.addEventListener("mousemove", function (event) {
+        displacementImage.x = event.pageX
+        displacementImage.y = event.pageY
     })
 
 })
