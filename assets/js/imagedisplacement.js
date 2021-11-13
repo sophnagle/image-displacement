@@ -23,6 +23,8 @@ sections.forEach(section => {
     // make a new image
     let image = null
     let displacementImage = null
+    // Colour filter - numbers can be changed depening on the desire effect
+    let rgbFilter = new PIXI.filters.RBGSplitFilter([0, 0], [0, 0], [0, 0])
 
     // make a new loader
     const loader = new PIXI.loaders.Loader()
@@ -50,8 +52,9 @@ sections.forEach(section => {
 
         image.filters = [
             // new PIXI.filters.BlurFilter(3,5),
-            // new PIXI.filters.NoiseFilter(0.1)
-            new PIXI.filters.DisplacementFilter(displacementImage, 100)
+            // new PIXI.filters.NoiseFilter(0.1),
+            new PIXI.filters.DisplacementFilter(displacementImage, 100),
+            rgbFilter
         ]
 
         // add the image to the app
@@ -61,7 +64,8 @@ sections.forEach(section => {
 
         // add rotation to each frame
         app.ticker.add(() => {
-            displacementImage.x = displacementImage.x + 1
+            displacementImage.x = displacementImage.x + 1,
+            displacementImage.y = displacementImage.y + 1
         })
     })
 
