@@ -24,7 +24,7 @@ sections.forEach(section => {
     let image = null
     let displacementImage = null
     // Colour filter - numbers can be changed depening on the desire effect
-    let rgbFilter = new PIXI.filters.RBGSplitFilter([0, 0], [0, 0], [0, 0])
+    let rgbFilter = new PIXI.filters.RGBSplitFilter([0, 0], [0, 0], [0, 0])
 
     // make a new loader
     const loader = new PIXI.loaders.Loader()
